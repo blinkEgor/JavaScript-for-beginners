@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope.html & external.js</title>
+</head>
+<body>
+    <script src="./external.js"></script>
+    <script>
+        const getName = () => {
+            let myName = `Internal Script`;
+            console.log(myName);
+        }
+        getName();
+    </script>
+</body>
+</html>
