@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bitwise.html</title>
+</head>
+<body>
+    <script>
+        (function() {
+            let x = 10, y = 5;
+            console.log(`x: ${x}`); // 10
+            console.log(`y: ${y}`); // 5
+
+            x = x ^ y;
+            // 1010 ^ 0101 = 1111 = 15
+
+            y = x ^ y;
+            // 1111 ^ 0101 = 1010 = 10
+
+            x = x ^ y;
+            // 1111 ^ 1010 = 0101 = 5
+
+            console.log(`\nx: ${x}`); // 5
+            console.log(`y: ${y}`); // 10
+        })();
+    </script>
+</body>
+</html>
