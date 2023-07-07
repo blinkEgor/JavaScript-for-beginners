@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>precedence.html</title>
+</head>
+<body>
+    <script>
+        (function() {
+            let sum = 9 + 12 / 3;
+            console.log(`Ungrouped sum: ${sum}`);
+
+            sum = (9 + 12) / 3;
+            console.log(`\nGrouped sum: ${sum}`);
+        })();
+    </script>
+</body>
+</html>
