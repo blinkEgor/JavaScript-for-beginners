@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice.html</title>
+</head>
+<body>
+    <script>
+        (function() {
+            const seasons = ["Spring", "Summer", "Fall", "Winter"];
+            console.log(`Elements: ${seasons}`);
+            console.log(`Joined: ${seasons.join(" & ")}`);
+            console.log(`Popped: ${seasons.pop()}`);
+            console.log(`Elements: ${seasons}`);
+            console.log(`Pushed: ${seasons.push("Winter")}`);
+            console.log(`Elements: ${seasons}`);
+            console.log(`Sliced: ${seasons.slice(1, 3)}`);
+            console.log(`Spliced: ${seasons.splice(2, 1, "Autumn")}`);
+            console.log(`Elements: ${seasons}`)
+        })();
+    </script>
+</body>
+</html>
