@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constants.html</title>
+</head>
+<body>
+    <script>
+        (() => {
+            let radius = 4;
+            console.log(`\nRadius of Circle: ${radius}`);
+            // Добавил операторы для выполнения математического расчета и вывода результата.
+            let area = Math.PI * (radius * radius);
+            console.log(`\nArea of Circle: ${area}`);
+            // Добавил операторы для ещё одного математического расчёта и вывода результата.
+            let circumference = 2 * (Math.PI * radius);
+            console.log(`\nPerimeter of Circle: ${circumference}`);
+            // Добавил операторы для выполнения окончательного математического расчёта и вывода результата.
+            let cube = (radius * radius * radius);
+            let volume = ((4 / 3) * Math.PI) * cube;
+            console.log(`\nVolume of Sphere: ${volume}`);
+        })();
+    </script>
+</body>
+</html>
