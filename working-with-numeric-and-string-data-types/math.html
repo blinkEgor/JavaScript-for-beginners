@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math.html</title>
+</head>
+<body>
+    <script>
+        (() => {
+            let square = Math.pow(5,2); // 52 or (5 * 5)
+            let cube = Math.pow(4, 3); // 43 or (4 * 4 * 4)
+            // Добавил операторы для вывода наибольшего и наименьшего значений из двух положительных чисел
+            console.log(`\nLargest Positive: ${Math.max(square, cube)}`);
+            console.log(`\nSmallest Positive: ${Math.min(square, cube)}`);
+            // Добавил операторы для изменения полярности каждого числа
+            square *= -1;
+            cube *= -1;
+            // Добавил операторы для вывода наибольшего и наименьшего значений из двух отрицательных чисел
+            console.log(`\nLargest Negative: ${Math.max(square, cube)}`);
+            console.log(`\nSmallest Negative: ${Math.min(square, cube)}`);
+        })();
+    </script>
+</body>
+</html>
