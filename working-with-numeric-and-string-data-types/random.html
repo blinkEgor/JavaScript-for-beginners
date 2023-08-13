@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random.html</title>
+</head>
+<body>
+    <script>
+        (() => {
+            let i, rand, temp, nums = [];
+            let str = "\n\nYour Six Lucky Numbers: ";
+            // Добавил цикл для заполнения элементов массива от 1 до 59 соответствующими номерами индексов
+            for(i = 1; i < 60; i++) { nums[i] = i };
+            // Добавил цикл для случайного выбора чисел в элементах массива
+            for(i = 1; i < 60; i++) {
+                rand = Math.ceil(Math.random() * 59);
+                temp = nums[i];
+                nums[i] = nums[rand];
+                nums[rand] = temp;
+            }
+            // добавил цикл для добавления списка из шести значений элементов через дефис
+            for(i = 1; i < 7; i++) {
+                str += nums[i];
+                if(i !== 6) {str += " _ "}
+            }
+            // Оператор для вывода строки
+            console.log(str);
+        })();
+    </script>
+</body>
+</html>
