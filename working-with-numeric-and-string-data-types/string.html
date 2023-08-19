@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string.html</title>
+</head>
+<body>
+    <script>
+        (() => {
+            let topic = "JavaScript";
+            let series = "in easy steps";
+            let title = "";
+            // Добавил оператор для вывода преобразованных версий регистра первых двух значений.
+            console.log(`${topic} > ${topic.toLowerCase()}`);
+            console.log(`${series} > ${series.toUpperCase()}`);
+            // Вставил операторы чтобы добавить пробел и вторую строку, затем присвоив её третьей и вывел объединённую строку.
+            title = topic.concat(" ", series);
+            console.log(`Title: ${title}`);
+            // Добавил операторы для вывода каждой строки
+            console.log(`\n${topic} - Length: ${topic.length}`);
+            console.log(`${series} - Length: ${series.length}`);
+            console.log(`${title} - Length: ${title.length}`);
+        })();
+    </script>
+</body>
+</html>
