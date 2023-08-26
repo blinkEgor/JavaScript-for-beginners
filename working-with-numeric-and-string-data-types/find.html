@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find.html</title>
+</head>
+<body>
+    <script>
+        (() => {
+            let str = "JavaScript in easy steps";
+            /* Добавил вывод результата двух поисков 
+            с учётом регистра */
+            console.log(`"Script" Search: ${str.search("Script")}`);
+            console.log(`"script" Search: ${str.search("script")}`);
+            /* Добавил вывод результатов двух совпадений строк 
+            с учётом регистра */ 
+            console.log(`\n"Script" Match: ${str.match("Script")}`);
+            console.log(`"script" Match: ${str.match("script")}`);
+            /* Добавил вывод первой и последней позиции индекса
+            символа, если он найден в строке */ 
+            console.log(`\nindexOf "s": ${str.indexOf("s")}`);
+            console.log(`indexOf "m": ${str.indexOf("m")}`);
+            console.log(`\nlastIndexOf "s": ${str.lastIndexOf("s")}`);
+            console.log(`lastIndexOf "m": ${str.lastIndexOf("m")}`);
+            /* Добавил вывод первого символа в строке и его
+            зачения Unicode, а также четырёх символов, указанных
+            в их значениях Unicode. */ 
+            console.log(`\ncharAt 0: ${str.charAt(0)}`);
+            console.log(`charCodeAt 0: ${str.charCodeAt(0)}`);
+            console.log(`fromCharCode: ${String.fromCharCode(74, 97, 118, 97)}`);
+            /* Добавил вывод исходной строки и её измененной версии */ 
+            console.log(`\nOriginal: ${str}`);
+            console.log(`Replaced: ${str.replace("easy", "simple")}`);
+        })();
+    </script>
+</body>
+</html>
