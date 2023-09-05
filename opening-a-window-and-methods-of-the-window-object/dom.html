@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom.html</title>
+</head>
+<body>
+    <!-- Пустой тег списка -->
+    <ol id="props" style="column-count: 3;"></ol>
+    <script>
+        (() => {
+            /* Доступ к тегу списка через ID */
+            const list = document.getElementById('props');
+            let propery = null;
+            /* Цикл для заполнения списка элементами
+            - свойствами объекта window */ 
+            for(propery in window) {
+                if(propery) {
+                    /* Закрывающие теги </li> необязательны */
+                    list.innerHTML += `<li>${propery}`;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
