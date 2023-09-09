@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dialogs.html</title>
+</head>
+<body>
+    <p id="response" style="font: 1.5em sans-serif"></p>
+    <script>
+        (() => {
+            const info = document.getElementById('response');
+            /* оператор отображения в диалоговом окне */ 
+            window.alert('Hellow from JavaScript');
+            /* операторя для запроса решения от пользователя 
+            с ответом в текстовом поле */ 
+            info.innerHTML = `Confirm: ${window.confirm('Go or Stop')}`;
+            /* оператор для запроса ввода текста от пользователя 
+            с ответом в текстовом поле */ 
+            info.innerHTML += `<br>Prompt: ${window.prompt('Yes or No', 'Yes')}`;
+        })();
+    </script>
+</body>
+</html>
