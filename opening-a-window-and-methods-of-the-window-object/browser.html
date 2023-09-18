@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>browser.html</title>
+</head>
+<body>
+    <ul id="list"></ul>
+    <script>
+        (() => {
+            /* ссылка на переменную */ 
+            const list = document.getElementById('list');
+
+            /* операторы для перечисления имён браузера */ 
+            list.innerHTML = `<li>Browser: ${navigator.appName}`;
+            list.innerHTML += `<li>Code Name: ${navigator.appCodeName}`;
+
+            /* операторы для извлечения сведения версии 
+            браузера и операционной системы */ 
+            list.innerHTML += `<li>Version: ${navigator.appVersion}`;
+            list.innerHTML += `<li>Platform}: ${navigator.platform}`;
+            
+            /* оператор, подтверждающий использование 
+            современного браузера */ 
+            if(window.addEventListener) {
+                list.innerHTML += `<li>This is a modern DOM browser`;
+            }
+        })();
+    </script>
+</body>
+</html>
