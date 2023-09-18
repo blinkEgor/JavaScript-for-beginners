@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enablad.html</title>
+</head>
+<body>
+    <!-- пустой абзац -->
+    <p id="info"></p>
+
+    <!-- встроенный сценарий -->
+    <script>
+        /* самовызывающаяся функция */ 
+        (() => {
+            /* ссылка на абзац и пустая переменная строки */ 
+            const info = document.getElementById('info');
+            let status = '';
+
+            /* операторы проверяюще поддержку Java */ 
+            status = (navigator.javaEnabled()) ? 'Enabled' : 'Disabled';
+            info.innerHTML += `Java Support is ${status}<hr>`;
+
+            /* операторы проверяющие поддержку cookie */
+            status = (navigator.cookieEnabled) ? 'Enabled' : 'Disabled';
+            info.innerHTML += `Cookie Support is ${status}<hr>`;
+
+            /* операторы для записи длинны массива подключаемых 
+            модулей и примера элемента */ 
+            if(navigator.plugins.length !== 0) {
+                info.innerHTML += `No. of Plugins: ${navigator.plugins.length}<br>`;
+                info.innerHTML += `Example: ${navigator.plugins[0].name}<br>`;
+                info.innerHTML += `For: ${navigator.plugins[0].description}<hr>`;
+            }
+
+            /* Операторы для записи длинны массива MIME 
+            и примера элемента */ 
+            if(navigator.mimeTypes.length !== 0) {
+                info.innerHTML += `No. of MIME Types: ${navigator.mimeTypes.length}<br>`;
+                info.innerHTML += `Example: ${navigator.mimeTypes[1].type}<br>`;
+                info.innerHTML += `For: ${navigator.mimeTypes[1].description}`;
+            }
+        })();
+    </script>
+</body>
+</html>
