@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iwrite.html</title>
+</head>
+<body>
+    <!--заголовок и упорядоченный список с тремя элементами-->
+    <h1 id="heading">Top 3 Cities</h1>
+    <ol id="list">
+        <li>Tokyo, Japan</li>
+        <li>New York, USA</li>
+        <li>Rio de Janerio, Brazil</li>
+    </ol>
+
+    <!--сценарий с iife function-->
+    <script>
+        (() => {
+            // создание и сохранение двух элементов и ссылка на заголовок
+            const itemFour = document.createElement('li');
+            const itemFive = document.createElement('li');
+            const heading = document.getElementById('heading');
+
+            // присвоение содержимого
+            itemFour.innerHTML = `London, England`;
+            itemFive.innerHTML = `Cape Town, South Africa`;
+
+            // вставка дочерних элементов 
+            document.getElementById('list').appendChild(itemFour);
+            document.getElementById('list').appendChild(itemFive);
+
+            // цвет шрифта заголовка
+            heading.setAttribute('style', 'color: Red');
+
+            // изменённый заголовок
+            heading.innerText = `Best Five Cities`;
+        })()
+    </script>
+</body>
+</html>
