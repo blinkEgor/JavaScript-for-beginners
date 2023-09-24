@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+</head>
+<body>
+    <ul id="list"></ul>
+    <script src="cookie.js">
+        (() => {
+    setCookie('User', 'Mike McGrath,12345', 7);
+
+    const list = document.getElementById('list');
+    let i, value = getCookie('User');
+    if (value.indexOf(',')) {
+        value = value.split(',');
+    }
+    for(i = 0; i < value.length; i++) {
+        list.innerHTML += `<li>${value[i]}`;
+    }
+})()
+    </script>
+</body>
+</html>
