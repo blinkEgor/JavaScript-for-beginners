@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>values.html</title>
+</head>
+<body>
+    <p id="info"></p>
+
+    <script>
+        (() => {
+            // обработчик для трёх событий
+            document.addEventListener('keydown', (event) => reactTo(event));
+            document.addEventListener('keyup', (event) => reactTo(event));
+            document.addEventListener('mousemove', (event) => reactTo(event));
+
+            const reactTo = event => {
+                const info = document.getElementById('info');
+
+                // отображения значений координат текущего положения мыши
+                if(event.type === 'mousemove') {
+                    info.innerHTML = `Mouse pointer is at X: ${event.x} Y: ${event.y}`;
+                }
+
+                // отображения значения Unicode клавиши при её нажатии
+                if(event.type === 'keydown') {
+                    info.innerHTML += `<hr>${event.type}`;
+                    info.innerHTML += `: ${event.keyCode}`;
+                }
+
+                // отображения этой же клавиши при её отпускании
+                if(event.type === 'keyup') {
+                    info.innerHTML += `<br>${event.type}: ${String.fromCharCode(event.keyCode)}<hr>`;
+                }
+            }
+        })()
+    </script>
+</body>
+</html>
