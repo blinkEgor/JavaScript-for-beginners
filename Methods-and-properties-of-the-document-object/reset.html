@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reset.html</title>
+</head>
+<body>
+    <!-- форма с текстовым полем, кнопка сбора и пустой абзац -->
+    <form id="code">
+        <input id="lang" name="Language" type="text">
+        <input type="reset">
+        <input type="submit">
+    </form>
+    <p id="info"></p>
+
+    <script>
+        // обработчик событий текстового поля "focus" и "focusout"
+        // события формы "reset" и события окна "load"
+        (() => {
+            const form = document.getElementById('code');
+            const lang = document.getElementById('lang');
+            const info = document.getElementById('info');
+
+            lang.addEventListener('focus', (event) => reactTo(event, info));
+            lang.addEventListener('focusout', (event) => reactTo(event, info));
+            form.addEventListener('reset', () => defaultMessage(info));
+            addEventListener('load', () => defaultMessage(info));
+        })();
+
+        // отобразить тип события
+        const reactTo = (event, info) => {
+            info.innerHTML = event.type;
+        }
+
+        // вывод сообщения
+        const defaultMessage = (info) => {
+            info.innerHTML = 'Please enter your favorite coding language';
+        }
+    </script>
+</body>
+</html>
