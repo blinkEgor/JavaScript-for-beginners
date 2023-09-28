@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>checkbox.html</title>
+</head>
+<body>
+    <!-- форма с группой из трёх флажков и кнопкой отправки -->
+    <form id="pizza" action="echo.pl" method="post">
+        <fieldset>
+            <legend>Select Pizza Toppings</legend>
+            <input type="checkbox" name="Top" value="Cheese">Cheese
+            <input type="checkbox" name="Top" value="Ham">Ham
+            <input type="checkbox" name="Top" value="Peppers">Peppers
+        </fieldset>
+        <input type="submit">
+    </form>
+
+    <!-- сценарий -->
+    <script>
+        (() => {
+            // назначение обработчика событий для отправки формы 
+            // и проверка одного флажка
+            const form = document.getElementById('pizza');
+            form.addEventListener('submit', (event) => reactTo(form, event));
+            form.Top[0].checked = true;
+        })();
+
+        // функция обработчика событий.
+        // три переменные и цыкл, чтобы определить отмеченные значки
+        const reactTo = (form, event) => {
+            let i, ok, summary = '';
+            for(i = 0; i < form.Top.length; i++) {
+                if(form.Top[i].checked) {
+                    summary += form.Top[i].value + ' ';
+                }
+            }
+
+            // операторы подтвеждения
+            ok = confirm(`Submit These Choices?\n${summary}`);
+            if(!ok) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>
