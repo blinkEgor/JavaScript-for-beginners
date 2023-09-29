@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validate.html</title>
+</head>
+<body>
+    <form action="echo.pl" id="contact" method="post">
+        <fieldset>
+            <legend>Please Enter Your Details</legend>
+            Name:<input type="text" name="Name" value="">
+            <br><br>
+            Email:<input type="text" name="Email" value="">
+        </fieldset>
+        <input type="submit">
+    </form>
+
+    <script>
+        // событие отправки формы
+        (() => {
+            const form = document.getElementById('contact');
+            form.addEventListener('submit', (event) => validate(form, event));
+        })();
+
+        // проверка введённого текста
+        const validate = (form, event) => {
+            let value = form.events['Name'].value;
+            if(value === '') {
+                alert('Please Enter Your Name');
+                event.preventDefault();
+                return;
+            }
+            value = form.elements['Email'].value;
+            if((value === '') || (value.indexOf('@') === -1) || (value.indexOf('.') === -1)) {
+                alert('Please Enter A Valid Email Address');
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>
