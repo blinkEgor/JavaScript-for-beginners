@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+
+        // объект Promise будет выполнять одну из двух функций с задержкой в одну секунду
+        (() => {
+            const promise = new Promise((resolve, reject) => {
+                let random = Math.round(Math.random() * 10);
+                if(random % 2 === 0) {
+                    setTimeout(() => resolve(random), 1000);
+                } else {
+                    setTimeout(() => reject(random), 1000);
+                }
+            });
+
+            // оператор с методами отображающие состояние промиса и возвращение значения
+            promise
+            .then(console.log(promise))
+            .then((res) => console.log(`${res} Is Even`))
+            .catch((err) => console.log(`${err} Is Odd`));
+        })();
+
+    </script>
+</body>
+</html>
