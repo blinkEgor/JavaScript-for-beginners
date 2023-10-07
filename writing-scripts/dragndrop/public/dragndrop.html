@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how to move elements</title>
+</head>
+<body>
+    
+    <p>
+        <img src="img/bin.png" id="bin" alt="Bin">
+        <img src="img/red.png" id="Red" alt="Folder" class="folder">
+        <img src="img/yel.png" id="Yellow" alt="Folder" class="folder">
+        <img src="img/grn.png" id="Green" alt="Folder" class="folder">
+    </p>
+    <fieldset>
+        <legend>Folders Dropped:</legend>
+        <ol id="list"></ol>
+    </fieldset>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', dragNdrop);
+
+        function dragNdrop() {
+            const bin = document.getElementById('bin');
+            const folders = document.getElementsByClassName('folder');
+            const list = document.getElementById('list');
+
+            for(let i = 0; i < folders.length; i++) {
+                folders[i].ondragstart = function(event) {
+                    event.dataTransfer.setData('Text', this.id);
+                }
+            }
+            bin.ondragover = function( event ) { return false }
+
+            bin.ondrop = function( event ) {
+                const did = event.dataTransfer.getData('Text');
+                const tag = document.getElementById(did);
+                if(did === 'bin') { return false }
+                else { list.innerHTML += '<li>' + did }
+                tag.parentNode.removeChild(tag);
+            }
+        }
+
+    </script>
+</body>
+</html>
