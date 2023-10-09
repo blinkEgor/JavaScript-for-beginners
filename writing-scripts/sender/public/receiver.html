@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>receiver.html</title>
+</head>
+<body>
+    
+    <h1>Receiver</h1>
+    <p id="host">Iframe Page Domain:</p>
+    <p id="msg"></p>
+
+    <script>
+
+        document.getElementById('host').innerText += document.domain;
+        window.addEventListener('message', readMsg);
+
+        function readMsg(event) {
+            if(event.origin === 'http://localhost') {
+                document.getElementById('msg').innerText = event.data;
+            }
+        }
+
+    </script>
+</body>
+</html>
