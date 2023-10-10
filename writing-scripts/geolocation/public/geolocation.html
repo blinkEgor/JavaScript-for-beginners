@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>geolocation.html</title>
+</head>
+<body>
+    
+    <p id="msg" style="width: 450px; height: 50px;"></p>
+    <p id="map" style="width: 450px; height: 200px;"></p>
+
+<script src="//maps.googleapis.com/maps/api/js?key=API_KEY"></script>
+<script>
+
+function init() {
+    if(navigator.geolocation) {
+        document.getElementById('msg').innerText = 'Geolocation service is trying to find you...';
+        navigator.geolocation.getCurrentPosition(success, fail);
+    } else {
+        document.getElementById('msg').innerText = 'Your browser does not support Geolocation service';
+    }
+}
+document.addEventListener('DOMContentLoaded', init);
+
+function fail(position) {
+    document.getElementById('msg').innerText = 'Geolocation service cannot find you at this time';
+}
+
+function success(position) {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    document.getElementById('msg').innerHTML = 'Found you at...<br>Latitube: ' + lat + ', Longitude: ' + lng;
+    const latlng = new google.maps.LatLng(lat, lng);
+    const options = {
+        zoom: 18,
+        center: latlng,
+        mapTypeld: google.maps.MapTypeld.ROADMAP
+    }
+    const map = new google.maps.Map(document.getElementById('map'), options);
+    const marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: 'You are here'
+    });
+}
+
+</script>
+</body>
+</html>
